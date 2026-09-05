@@ -54,3 +54,25 @@ button:hover {
   font-weight: bold;
   min-height: 1.5rem;
 }
+
+@keyframes party-mode {
+  0% {
+    background-color: hsl(0, 70%, 20%);
+  }
+  25% {
+    background-color: hsl(90, 70%, 20%);
+  }
+  50% {
+    background-color: hsl(180, 70%, 20%);
+  }
+  75% {
+    background-color: hsl(270, 70%, 20%);
+  }
+  100% {
+    background-color: hsl(360, 70%, 20%);
+  }
+}
+
+body.party {
+  animation: party-mode 0.8s linear infinite;
+}

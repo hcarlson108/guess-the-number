@@ -6,6 +6,7 @@ const input = document.getElementById('guessInput');
 const button = document.getElementById('guessBtn');
 const message = document.getElementById('message');
 const log = document.getElementById('log');
+const playAgainBtn = document.getElementById('playAgainBtn');
 
 //Add a function to handle the guesses
 function handleGuess() {
@@ -24,10 +25,26 @@ function handleGuess() {
     message.textContent = 'too low';
   } else {
     message.textContent = `correct! you got it in ${guesses} guesses`;
+    document.body.classList.add('party');
+    button.hidden = true;
+    playAgainBtn.hidden = false;
   }
 }
 
+function resetGame() {
+  secret = Math.floor(Math.random() * 100) + 1;
+  guesses = 0;
+  message.textContent = '';
+  input.value = '';
+  input.focus();
+  document.body.classList.remove('party');
+  button.hidden = false;
+  playAgainBtn.hidden = true;
+}
+
 button.addEventListener('click', handleGuess);
+
+playAgainBtn.addEventListener('click', resetGame);
 
 input.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
