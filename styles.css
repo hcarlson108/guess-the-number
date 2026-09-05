@@ -4,14 +4,18 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem;
+  padding: clamp(1rem, 6vw, 2rem);
   font-family: system-ui, sans-serif;
   background-color: #5a0404;
   color: #f1f5f9;
@@ -19,11 +23,12 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 5vw + 0.5rem, 2rem);
+  max-width: 30ch;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw + 0.6rem, 1.1rem);
   color: #cbd5e1;
 }
 
@@ -32,7 +37,7 @@ input {
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   border: 1px solid #475569;
-  width: 12rem;
+  width: min(12rem, 70vw);
 }
 
 button {
@@ -40,13 +45,15 @@ button {
   padding: 0.5rem 1.25rem;
   border-radius: 6px;
   border: none;
-  background-color: #3b82f6;
+  background-color: #000000;
   color: #ffffff;
   cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 button:hover {
-  background-color: #2563eb;
+  background-color: #19fb00;
 }
 
 #message {
@@ -74,5 +81,5 @@ button:hover {
 }
 
 body.party {
-  animation: party-mode 0.8s linear infinite;
+  animation: party-mode 0.2s linear infinite;
 }

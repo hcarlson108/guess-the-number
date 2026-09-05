@@ -8,12 +8,20 @@ const message = document.getElementById('message');
 const log = document.getElementById('log');
 const playAgainBtn = document.getElementById('playAgainBtn');
 
+const failureMessage = [
+  'what is that ??!#? enter a REAL number between 1 and 100 ',
+  'really.',
+  'dude',
+  "don't make me come over there",
+  'omg',
+];
+
 //Add a function to handle the guesses
 function handleGuess() {
   const guess = Number(input.value);
-
+  let i = 1;
   if (isNaN(guess) || guess < 1 || guess > 100) {
-    message.textContent = 'wtf is that ? Enter a number between 1 and 100....';
+    message.textContent = failureMessage[i * Math.floor(Math.random() * 4)];
     return;
   }
 
@@ -24,7 +32,7 @@ function handleGuess() {
   } else if (guess < secret) {
     message.textContent = 'too low';
   } else {
-    message.textContent = `correct! you got it in ${guesses} guesses`;
+    message.textContent = `YESSSSS YOU GOT IT - only took you about ${guesses} guesses`;
     document.body.classList.add('party');
     button.hidden = true;
     playAgainBtn.hidden = false;
